@@ -8,6 +8,11 @@ class App extends Component {
 
   responseFacebook(response){
     console.log(response)
+    this.setState({
+      name : response.name,
+      email: response.email,
+      picture: response.picture.data.url
+    })
     
   }
 
@@ -18,6 +23,7 @@ class App extends Component {
       email:"johnsmith@example.com",
       picture:"https://bulma.io/images/placeholders/96x96.png"
     }
+    this.responseFacebook = this.responseFacebook.bind(this)
   }
 
   render() {
@@ -31,11 +37,6 @@ class App extends Component {
       />
       
       <div className="card">
-  <div className="card-image">
-    <figure className="image is-4by3">
-      <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image"></img>
-    </figure>
-  </div>
   <div className="card-content">
     <div className="media">
       <div className="media-left">
